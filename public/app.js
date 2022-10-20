@@ -1,6 +1,6 @@
 //  socket io
+const socket = io();
 function chatApp(){
-    const socket = io();
     const app = document.querySelector('.messenger')
     let exitBtn = app.querySelector('#exit-chat')
     let joinBtn = app.querySelector('#join-user')
