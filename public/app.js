@@ -5,7 +5,7 @@ function chatApp(){
     let exitBtn = app.querySelector('#exit-chat')
     let joinBtn = app.querySelector('#join-user')
 
-    let userName; 
+  let userName; 
     
   joinBtn.addEventListener('click', function(e){
        let chatScreen = app.querySelector('.screen.chat-screen')
@@ -59,6 +59,8 @@ function chatApp(){
 
     function renderMessage(type, msg){
         let msgContainer =  app.querySelector('.messages')
+         
+
         if( type == 'my') {
             let el = document.createElement('div')
             el.setAttribute('class', 'message my-message')
@@ -70,13 +72,21 @@ function chatApp(){
             msgContainer.appendChild(el)
 
         } else if (type == 'other') {
+             
+            let otherMsg = ''
+
+            for (let index = 0; index < msg.length; index++) {
+                otherMsg = `
+                <div class="name">${msg[index].user}</div>   
+                <div class="text">${msg[index].text}</div> 
+  
+               ` 
+                
+            }
             let el = document.createElement('div')
             el.setAttribute('class', 'message other-message')
-            el.innerHTML = `
-               <div class="name">${msg.user}</div>   
-               <div class="text">${msg.text}</div> 
-            
-            `
+            el.innerHTML = otherMsg
+    
             msgContainer.appendChild(el) 
 
         } else if ( type == 'update') {

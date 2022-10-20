@@ -1,6 +1,7 @@
 const express = require('express')
 const app = new express()
 require('colors')
+const fs = require('fs')
 const path = require('path')
 const { createServer } = require('http')
 const { Server } = require('socket.io')
@@ -18,18 +19,29 @@ app.get('/', ( req, res ) => {
 
 io.on('connection', function(socket) {
     console.log(`client is connected`.bgMagenta);
+    
+    let userDb = JSON.parse(fs.readFileSync(path.join(__dirname, './public/user.json')).toString())
 
-    socket.on('new-user', function(user){
-        socket.broadcast.emit('loginUser', user + ' join this conversation.')
+    let chatDb = JSON.parse(fs.readFileSync(path.join(__dirname, './public/chat.json')).toString())  
+     
+    socket.on('new-user', function(user){   
+        userDb.push(user)
+        fs.writeFileSync(path.join(__dirname, './public/user.json'), JSON.stringify(userDb))     
+        let newUser = userDb.find( i => i === user)
+        socket.broadcast.emit('loginUser', newUser + ' join this conversation.')
     })
-
+  
     socket.on('exit-user', function(user){
-      socket.broadcast.emit('logout-user', user + ' left this conversation.')
+      let newUser = userDb.find( i => i === user)
+      socket.broadcast.emit('logout-user', newUser + ' left this conversation.')
+    })
+ 
+    socket.on('chat', function(chat){
+        chatDb.push(chat)
+        fs.writeFileSync(path.join(__dirname, './public/chat.json'), JSON.stringify(chatDb))  
+        socket.broadcast.emit('msg', chatDb)
     })
 
-    socket.on('chat', function(chat){
-        socket.broadcast.emit('msg', chat)
-    })
 
 
 
