@@ -4,7 +4,7 @@
   "main": "server.js",
   "license": "MIT",
   "scripts": {
-    "server": "nodemon server.js"
+    "server": "node server.js"
   },
   "dependencies": {
     "colors": "^1.4.0",

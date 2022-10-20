@@ -43,11 +43,6 @@ function chatApp(){
       
     })
 
-    socket.on('logout-user', function(userData){
-        renderMessage('update', userData)
-     })
-
-
      exitBtn.addEventListener('click', function(e) {
         socket.emit('exit-user', userName) 
         window.location.href = window.location.href
@@ -55,8 +50,7 @@ function chatApp(){
      })
 
      socket.on('logout-user', function(userData){
-        renderMessage('update', userData)
-      
+        renderMessage('update', userData)  
      })
 
     socket.on('msg', function(chatMsg){
