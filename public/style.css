@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* font-family: 'Caveat', cursive;
+font-family: 'Poppins', sans-serif; */
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.messenger{
+    max-width: 600px;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.messenger .screen .join-screen{}
+
+.messenger .screen .form{
+   background-color: #dadada;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   max-width: 400px;
+   width: 400px;
+   padding: 15px;
+   border-radius: 5px;
+   box-shadow: 0px 0px 0px 1px #0000005e;
+}
+.messenger .screen .form h2{}
+.messenger .screen  .form .form-input{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px 0;
+}
+.messenger .screen .form .form-input label{
+}
+.messenger .screen  .form .form-input input{
+    padding: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 5px 1px #3a101005;
+    outline: none;
+}
+.messenger .screen .form .form-input button{
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    background: turquoise;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #eee;
+    cursor: pointer;
+}
+
+.messenger > .screen{
+    display: none;
+}
+.messenger .screen.active{
+    display: block;
+}
+
+.messenger .screen .chat-screen{}
+.messenger .screen .chat-header{background: turquoise;padding: 15px 15px;display: flex;justify-content: space-between;align-items: center;}
+.messenger .screen  .chat-header .logo{
+    font-weight: 700;
+    color: mistyrose;
+    text-shadow: 2px 1px 0px #000;
+    font-size: 25px;
+}
+.messenger .screen .chat-header button{
+    padding: 10px 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: unset;
+    font-weight: 700;
+    cursor: pointer;
+}
+.messenger .screen  .messages{height: 70vh;background: #eee;overflow-y: scroll;padding: 15px 15px;}
+.messenger .screen  .messages .message{
+    max-width: 355px;
+    background: #ddd;
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+.messenger .screen .messages .message.my-message{
+    margin-left: auto;
+}
+.messenger .screen .messages .message.other-message{
+}
+.messenger .screen  .messages .message .name{
+    /* background: #ddd; */
+}
+.messenger .screen  .messages .message .text{font-size: 25px;word-wrap: break-word;}
+.messenger .screen .typebox{
+    background: turquoise;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    align-items: center;
+    gap: 0 10px;
+}
+.messenger .screen  .typebox input{
+    width: 100%;
+    padding: 10px 10px;
+    border: none;
+    outline: none;
+}
+.messenger .screen .typebox button{
+    padding: 10px;
+    border: none;
+    outline: navajowhite;
+    background: cyan;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    border-radius: 50px;
+    color: cornsilk;
+    box-shadow: 0px 0px 20px 0px #0303031a;
+    font-weight: 600;
+    text-shadow: 0px 0px 3px #000;
+    cursor: pointer;
+}
+.messenger .screen  .messages .update{
+    padding: 0 13px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    text-shadow: 0 0 BLACK;
+    font-weight: 500;
+}
+ 
+
